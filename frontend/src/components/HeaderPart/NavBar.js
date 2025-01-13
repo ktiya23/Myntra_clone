@@ -1,12 +1,37 @@
-import React from 'react'
+import { Typography, Box, styled } from '@mui/material';
+import React from 'react';
+
+const Text = styled(Typography)`
+  color: gray;
+  font-weight: bold;
+  font-size:15px;
+`;
+
+const Container = styled(Box)`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%; 
+`;
 
 const NavBar = () => {
+  const info = [
+    { text: 'MEN' },
+    { text: 'WOMEN' },
+    { text: 'KIDS' },
+    { text: 'HOME&LIVING' },
+    { text: 'BEAUTY' },
+    { text: 'STUDIO' },
+  ];
 
   return (
-    <div >
-        
-    </div>
-  )
-}
+    <Container>
+      {info.map((data, index) => (
+        <Box key={index}>
+          <Text>{data.text}</Text> 
+        </Box>
+      ))}
+    </Container>
+  );
+};
 
-export default NavBar
+export default NavBar;

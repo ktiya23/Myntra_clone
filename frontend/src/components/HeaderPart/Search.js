@@ -9,14 +9,12 @@ const StyledContainer = styled(Box)`
   border-radius: 4px;
   padding: 4px 8px;
   width: 500px;
-  height:25px;
+  height: 25px;
 `;
-
 
 const StyledInput = styled(InputBase)`
-    padding:10px;
+  padding: 10px;
 `;
-
 
 const Search = () => {
   return (

@@ -18,9 +18,7 @@ const HeaderContainer = styled(Box)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: calc(100% - 60px);
-  margin: 0 auto; 
-  padding: 0 30px; 
+  padding: 0 30px;
 `;
 
 const Header = () => {

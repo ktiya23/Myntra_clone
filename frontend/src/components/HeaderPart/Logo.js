@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Box
       sx={{
-        padding: "0 16px",
+        padding: "16px",
         display: "flex",
         alignItems: "center",
       }}

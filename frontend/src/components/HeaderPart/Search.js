@@ -8,7 +8,7 @@ const StyledContainer = styled(Box)`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 4px 8px;
-  width: 500px;
+  width: 900px;
   height: 25px;
 `;
 
@@ -22,7 +22,7 @@ const Search = () => {
       <IconButton>
         <SearchIcon />
       </IconButton>
-      <StyledInput placeholder="Search for products , brand and more" />
+      <StyledInput placeholder="Search for products,brand and more" />
     </StyledContainer>
   );
 };

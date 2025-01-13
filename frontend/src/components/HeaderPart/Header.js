@@ -18,13 +18,15 @@ const HeaderContainer = styled(Box)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 30px;
+  max-width: calc(100% - 60px); 
+  margin: 0 10px; 
+  padding: 0 20px;
 `;
 
 const Header = () => {
   return (
-    <StyledHeader position="static">
-      <Toolbar disableGutters>
+    <StyledHeader>
+      <Toolbar>
         <HeaderContainer>
           <Logo />
           <NavBar />

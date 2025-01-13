@@ -2,15 +2,15 @@ import { Typography, Box, styled } from '@mui/material';
 import React from 'react';
 
 const Text = styled(Typography)`
-  color: gray;
+  color: black;
   font-weight: bold;
-  font-size:15px;
+  font-size:13px;
 `;
 
 const Container = styled(Box)`
   display: flex;
   justify-content: space-evenly;
-  width: 100%; 
+  width: 70%; 
 `;
 
 const NavBar = () => {

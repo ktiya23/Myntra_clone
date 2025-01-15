@@ -11,7 +11,6 @@ const Brands = () => {
           alignItems: "center",
           gap: 0,
           margin: "0 auto",
-          mt: "0",
           p: 0,
           overflow: "hidden",
         }}
@@ -55,7 +54,7 @@ const Brands = () => {
       <Box
         sx={{
           width: "100%",
-          mt: 0, 
+          mt: 0,
           display: "flex",
           justifyContent: "center",
         }}
@@ -64,7 +63,7 @@ const Brands = () => {
           src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/1/UskhTCue_6dc2919021c148c28a2d1df36dfaf8af.jpg"
           alt="Fourth"
           style={{
-            width: "70%", 
+            width: "70%",
             height: "auto",
             margin: 0,
             padding: 0,
@@ -73,46 +72,45 @@ const Brands = () => {
         />
       </Box>
       <Container
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 0,
-            margin: "0 auto",
-            mt: "100px",
-            p: 0,
-            overflow: "hidden",
-          }}
-        >
-          <Box sx={{ display: "flex", width: "100%" }}>
-            <img
-              src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/10/4tkVHPqP_83b5945745f64d55ae610c181b9c7b67.jpg"
-              alt="First"
-              style={{
-                width: "50%",
-                height: "auto",
-                margin: 0,
-                padding: 0,
-                display: "block",
-              }}
-            />
-            <img
-              src="https://assets.myntassets.com/w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/10/QmLuHLur_e2fa5970f9994be49654dc00711ed727.jpg"
-              alt="Second"
-              style={{
-                width: "50%",
-                height: "auto",
-                margin: 0,
-                padding: 0,
-                display: "block",
-              }}
-            />
-          </Box>
-        </Container>
-        <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 0,
+          margin: "0 auto",
+          p: 0,
+          overflow: "hidden",
+        }}
+      >
+        <Box sx={{ display: "flex", width: "100%" }}>
+          <img
+            src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/10/4tkVHPqP_83b5945745f64d55ae610c181b9c7b67.jpg"
+            alt="First"
+            style={{
+              width: "50%",
+              height: "auto",
+              margin: 0,
+              padding: 0,
+              display: "block",
+            }}
+          />
+          <img
+            src="https://assets.myntassets.com/w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/10/QmLuHLur_e2fa5970f9994be49654dc00711ed727.jpg"
+            alt="Second"
+            style={{
+              width: "50%",
+              height: "auto",
+              margin: 0,
+              padding: 0,
+              display: "block",
+            }}
+          />
+        </Box>
+      </Container>
+      <Box
         sx={{
           width: "100%",
-          mt: 0, 
+          mt: 0,
           display: "flex",
           justifyContent: "center",
         }}
@@ -121,7 +119,7 @@ const Brands = () => {
           src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/11/3OiTbrsX_db00a4b8bb714efd956ec6339048e6f0.jpg"
           alt="Fourth"
           style={{
-            width: "70%", 
+            width: "70%",
             height: "auto",
             margin: 0,
             padding: 0,

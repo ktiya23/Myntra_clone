@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/HeaderPart/Header';
+import ImageSlider from './components/ImageSliderPart/ImageSlider';
 import Top from './components/TopPart/Top';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Header/>
       <Top />
+      <ImageSlider/>
     </div>
   );
 }

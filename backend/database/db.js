@@ -1,8 +1,4 @@
 import mongoose from "mongoose"
-
-
-
-
 export const Connection = async(username,password)=>{
     const URL=`mongodb+srv://${username}:${password}@cluster0.kriqg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
     try {

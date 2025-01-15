@@ -1,4 +1,4 @@
-import { Container, Pagination, PaginationItem } from '@mui/material'
+import { Container, Pagination, Box } from '@mui/material'
 import React, { useState } from 'react'
 
 const images = [
@@ -42,7 +42,6 @@ const ImageSlider = () => {
         overflow: "hidden",
       }}
     >
-      {/* Image Slider */}
       <Box
         sx={{
           display: "flex",
@@ -66,7 +65,6 @@ const ImageSlider = () => {
         ))}
       </Box>
 
-      {/* Pagination Dots */}
       <Pagination
         count={pageCount}
         page={currPage}

@@ -1,5 +1,5 @@
-import { Container, Pagination } from '@mui/material'
-import React from 'react'
+import { Container, Pagination, PaginationItem } from '@mui/material'
+import React, { useState } from 'react'
 
 const images = [
     {url:"https://assets.myntassets.com/w_245,c_limit,fl_progressive,dpr_2.0/assets/images/2024/12/17/bf541a9e-49ad-4351-89bf-ac2ee33d95651734451313681-image_jpeg442386857.jpg"},
@@ -20,11 +20,60 @@ const images = [
     {url:"https://assets.myntassets.com/w_245,c_limit,fl_progressive,dpr_2.0/assets/images/2024/DECEMBER/14/BGLBdxOz_4dcc1d8a0f40417caeebbe3df99c793c.png"},
 ]
 const ImageSlider = () => {
+    const [currPage , setCurrPage] = useState(1);
+    const imagesPerSlide = 4
+    const pageCount = Math.ceil(images.length/imagesPerSlide)
+
+    const handlePage= (e,val)=>{
+        setCurrPage(val)
+    }
+
+    const getCurrImg=()=>{
+        const startIdx=(currPage-1)*imagesPerSlide;
+        return images.slice(startIdx,startIdx+imagesPerSlide);
+    }
   return (
-    <Container>
-        <Pagination>
-            
-        </Pagination>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: 0,
+        overflow: "hidden",
+      }}
+    >
+      {/* Image Slider */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          overflow: "hidden",
+        }}
+      >
+        {getCurrImg().map((image, index) => (
+          <img
+            key={index}
+            src={image.url}
+            alt={`Slide ${index + 1}`}
+            style={{
+              width: "25%",
+              height: "auto",
+              margin: 0,
+              padding: 0,
+            }}
+          />
+        ))}
+      </Box>
+
+      {/* Pagination Dots */}
+      <Pagination
+        count={pageCount}
+        page={currPage}
+        onChange={handlePage}
+        color="primary"
+        sx={{ marginTop: 2 }}
+      />
     </Container>
   )
 }

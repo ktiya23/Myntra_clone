@@ -119,7 +119,7 @@ const Brands = () => {
           src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/11/3OiTbrsX_db00a4b8bb714efd956ec6339048e6f0.jpg"
           alt="Fourth"
           style={{
-            width: "70%",
+            width: "76%",
             height: "auto",
             margin: 0,
             padding: 0,

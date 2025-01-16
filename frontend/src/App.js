@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/HeaderPart/Header';
 import ImageSlider from './components/ImageSliderPart/ImageSlider';
+import ShopByCategory from './components/ShopByCategory/ShopByCategory';
 import Top from './components/TopPart/Top';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Header/>
       <Top />
       <ImageSlider/>
+      <ShopByCategory/>
     </div>
   );
 }

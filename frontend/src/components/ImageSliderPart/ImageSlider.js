@@ -38,9 +38,10 @@ const ImageSlider = () => {
     const interval = setInterval(() => {
       setCurrPage((prevPage) => (prevPage === pageCount ? 1 : prevPage + 1));
     }, 3000);
-
+  
     return () => clearInterval(interval);
   }, [pageCount]);
+  
 
   return (
     <Container

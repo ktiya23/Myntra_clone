@@ -12,7 +12,7 @@ function App() {
       <Top />
       <ImageSlider/>
       <ShopByCategory/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/FooterPart/Footer';
 import Header from './components/HeaderPart/Header';
 import ImageSlider from './components/ImageSliderPart/ImageSlider';
 import ShopByCategory from './components/ShopByCategory/ShopByCategory';
@@ -11,6 +12,7 @@ function App() {
       <Top />
       <ImageSlider/>
       <ShopByCategory/>
+      <Footer/>
     </div>
   );
 }

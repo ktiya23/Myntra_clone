@@ -40,8 +40,8 @@ const images=[
 
 const ShopByCategory = () => {
   return (
-    <Container maxWidth="xl">
-        <img src='https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/11/fn1avydK_9837e0b576384390acc9607b89ed5bfc.jpg' alt='ShopByCategory' style={{display:"block", height:"auto", margin:"0 auto", width:"90%" }}/>
+    <Container sx={{margin:"0 auto"}}>
+        <img src='https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/11/fn1avydK_9837e0b576384390acc9607b89ed5bfc.jpg' alt='ShopByCategory' style={{display:"block", height:"auto", margin:"0 auto", width:"100%" }}/>
 
         <div
         style={{
@@ -56,7 +56,8 @@ const ShopByCategory = () => {
           <div
             key={index}
             style={{
-              flex: "0 0 calc(16.66% - 16px)", 
+                flex: "0 0 calc(16.66%)", 
+              maxWidth: "16.66%",
             }}
           >
             <img
@@ -72,6 +73,7 @@ const ShopByCategory = () => {
           </div>
         ))}
       </div>
+      <img src='https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JANUARY/10/4tpZM1rH_ae791a255c4d4ae5a7bf8b9a469b4144.jpg' alt='link' height="auto" width="100%"/>
      </Container>
   )
 }

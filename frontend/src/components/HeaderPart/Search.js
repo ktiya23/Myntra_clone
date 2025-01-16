@@ -7,13 +7,14 @@ const StyledContainer = styled(Box)`
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  padding: 4px 8px;
-  width: 900px;
-  height: 25px;
+  width: 900px; 
+  marginRight:"25px";
 `;
 
 const StyledInput = styled(InputBase)`
-  padding: 10px;
+  flex-grow: 1; 
+    marginRight:"25px";
+
 `;
 
 const Search = () => {
@@ -22,7 +23,7 @@ const Search = () => {
       <IconButton>
         <SearchIcon />
       </IconButton>
-      <StyledInput placeholder="Search for products,brand and more" />
+      <StyledInput placeholder="Search for products, brands and more" />
     </StyledContainer>
   );
 };

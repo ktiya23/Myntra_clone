@@ -2,8 +2,14 @@ import { IconButton,Box,Typography } from '@mui/material'
 import FavoriteIcon from "@mui/icons-material/Favorite"
 
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const WishList = () => {
+  const navigate = useNavigate()
+
+  const handleWishList=()=>{
+    navigate("/wishlist")
+  }
   return (
     <Box
       sx={{
@@ -13,7 +19,7 @@ const WishList = () => {
         gap: 0,
       }}
     >
-      <IconButton sx={{ padding: 0 }}>
+      <IconButton sx={{ padding: 0 }} onClick={handleWishList}>
         <FavoriteIcon
           sx={{
             fontSize: 20,

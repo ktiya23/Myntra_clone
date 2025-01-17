@@ -14,7 +14,6 @@ const StyledContainer = styled(Box)`
 const StyledInput = styled(InputBase)`
   flex-grow: 1; 
     marginRight:"25px";
-
 `;
 
 const Search = () => {

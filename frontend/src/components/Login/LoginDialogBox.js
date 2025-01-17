@@ -1,67 +1,130 @@
-import React from 'react';
-import { 
-  Button, 
-  Dialog, 
-  DialogActions, 
-  DialogContent, 
-  DialogContentText, 
-  DialogTitle, 
-  Divider, 
-  Box 
-} from '@mui/material';
+import React from "react";
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Divider,
+  Box,
+  Typography,
+  styled,
+} from "@mui/material";
 
-const LoginDialogBox = ({ open, setOpen }) => {
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontSize: "15px",
+  cursor: "pointer",
+  "&:hover": {
+    fontWeight: "bold",
+  },
+}));
 
+const LoginDialogBox = ({ open, setOpen, user }) => {
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
-    <Dialog 
-      open={open} 
-      onClose={handleClose} 
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      BackdropProps={{
+        style: { background: "transparent" },
+      }}
       sx={{
-        '& .MuiDialog-paper': {
-          width: '300px',
-          padding: '20px',
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-        }
+        "& .MuiDialog-paper": {
+          width: "300px",
+          position: "absolute",
+          left: "80%",
+          top: "39%",
+          transform: "translate(-50%, -50%)",
+        },
       }}
     >
-      <DialogTitle>Welcome</DialogTitle>
-      <DialogContent>
-        <DialogContentText sx={{ marginBottom: '20px' }}>
-          To access your account and manage order
-        </DialogContentText>
-        <Button 
-          variant="contained" 
-          color="primary" 
-          fullWidth
-          onClick={handleClose}
-          sx={{ marginBottom: '15px' }}
-        >
-          Login/Signup
-        </Button>
-        <Divider />
-        <Box sx={{ marginTop: '15px' }}>
-          <DialogActions>Orders</DialogActions>
-          <DialogActions>Wishlist</DialogActions>
-          <DialogActions>Gift Cards</DialogActions>
-          <DialogActions>Contact Us</DialogActions>
-          <DialogActions>Myntra Insiders</DialogActions>
-        </Box>
-        <Divider />
-        <Box sx={{ marginTop: '15px' }}>
-          <DialogActions>Myntra Credit</DialogActions>
-          <DialogActions>Coupons</DialogActions>
-          <DialogActions>Saved Cards</DialogActions>
-          <DialogActions>Saved VPA</DialogActions>
-          <DialogActions>Saved Addresses</DialogActions>
-        </Box>
-      </DialogContent>
+      {user ? (
+        <>
+          <DialogTitle sx={{ paddingBottom: 0 }}>Hello {user.name}</DialogTitle>
+          <DialogContent>
+            <DialogContentText sx={{ marginBottom: "12px" }}>
+              {user.number}
+            </DialogContentText>
+            <Button
+              variant="outlined"
+              sx={{
+                marginBottom: "15px",
+                color: "red",
+                borderColor: "gray",
+                fontWeight: "bold",
+                "&:hover": {
+                  borderColor: "red",
+                },
+              }}
+            >
+              Login/Signup
+            </Button>
+            <Divider />
+            <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
+              <StyledTypography>Orders</StyledTypography>
+              <StyledTypography>Wishlist</StyledTypography>
+              <StyledTypography>Gift Cards</StyledTypography>
+              <StyledTypography>Contact Us</StyledTypography>
+              <StyledTypography>Myntra Insiders</StyledTypography>
+            </Box>
+            <Divider />
+            <Box sx={{ marginTop: "15px" }}>
+              <StyledTypography>Myntra Credit</StyledTypography>
+              <StyledTypography>Coupons</StyledTypography>
+              <StyledTypography>Saved Cards</StyledTypography>
+              <StyledTypography>Saved VPA</StyledTypography>
+              <StyledTypography>Saved Addresses</StyledTypography>
+            </Box>
+            <Divider />
+            <Box sx={{ marginTop: "15px" }}>
+              <StyledTypography>Edit Profile</StyledTypography>
+              <StyledTypography>Logout</StyledTypography>
+            </Box>
+          </DialogContent>
+        </>
+      ) : (
+        <>
+          <DialogTitle sx={{ paddingBottom: 0 }}>Welcome</DialogTitle>
+          <DialogContent>
+            <DialogContentText sx={{ marginBottom: "12px" }}>
+              To access your account and manage orders
+            </DialogContentText>
+            <Button
+              variant="outlined"
+              sx={{
+                marginBottom: "15px",
+                color: "red",
+                borderColor: "gray",
+                fontWeight: "bold",
+                "&:hover": {
+                  borderColor: "red",
+                },
+              }}
+            >
+              Login/Signup
+            </Button>
+            <Divider />
+            <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
+              <StyledTypography>Orders</StyledTypography>
+              <StyledTypography>Wishlist</StyledTypography>
+              <StyledTypography>Gift Cards</StyledTypography>
+              <StyledTypography>Contact Us</StyledTypography>
+              <StyledTypography>Myntra Insiders</StyledTypography>
+            </Box>
+            <Divider />
+            <Box sx={{ marginTop: "15px" }}>
+              <StyledTypography>Myntra Credit</StyledTypography>
+              <StyledTypography>Coupons</StyledTypography>
+              <StyledTypography>Saved Cards</StyledTypography>
+              <StyledTypography>Saved VPA</StyledTypography>
+              <StyledTypography>Saved Addresses</StyledTypography>
+            </Box>
+          </DialogContent>
+        </>
+      )}
     </Dialog>
   );
 };

@@ -1,11 +1,17 @@
 import express from "express";
 import Connection from "./database/db.js";
 import dotenv from "dotenv";
+import cors from "cors"
+import bodyParser from "body-parser"
+
+const PORT = process.env.PORT || 8080
 
 const app = express()
 
 dotenv.config();
-const USERNAME= process.env.DB_USERNAME;
-const PASSWORD= process.env.DB_PASSWORD;
-Connection(USERNAME,PASSWORD)
-app.listen(8000,()=>console.log("server is running...."));
+
+app.use(bodyParser.json())
+app.use(cors())
+
+Connection()
+app.listen(PORT,()=>console.log("server is running...."));

@@ -10,6 +10,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   fontSize: "15px",
@@ -20,8 +21,15 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const LoginDialogBox = ({ open, setOpen, user }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleLoginSignupClick = () => {
+    setOpen(false); // Close the dialog
+    navigate("/login"); // Navigate to the login page
   };
 
   return (
@@ -59,6 +67,7 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
                   borderColor: "red",
                 },
               }}
+              onClick={handleLoginSignupClick} // Add onClick handler
             >
               Login/Signup
             </Button>
@@ -103,6 +112,7 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
                   borderColor: "red",
                 },
               }}
+              onClick={handleLoginSignupClick} // Add onClick handler
             >
               Login/Signup
             </Button>

@@ -1,19 +1,19 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  // import useNavigate
+import { useNavigate } from "react-router-dom";  
 import LoginDialogBox from "../Login/LoginDialogBox";
 
 const Profile = () => {
   const [open , setOpen] = useState(false);
-  const navigate = useNavigate();  // useNavigate hook for navigation
+  const navigate = useNavigate();  
 
   const handleDialog = () => {
     setOpen(true);
   };
 
   const handleLoginSignup = () => {
-    navigate("/login");  // Navigate to /login page
+    navigate("/login");  
     setOpen(false);
   };
 

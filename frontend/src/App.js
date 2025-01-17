@@ -1,18 +1,30 @@
 import './App.css';
-import Footer from './components/FooterPart/Footer';
 import Header from './components/HeaderPart/Header';
 import ImageSlider from './components/ImageSliderPart/ImageSlider';
+import LoginPage from './components/Pages/LoginPage';
+import WishListPage from './components/Pages/WishListPage';
 import ShopByCategory from './components/ShopByCategory/ShopByCategory';
 import Top from './components/TopPart/Top';
+import { Routes, Route } from 'react-router-dom'; // Correct imports for Routes and Route
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Top />
-      <ImageSlider/>
-      <ShopByCategory/>
-      {/* <Footer/> */}
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Top />
+              <ImageSlider />
+              <ShopByCategory />
+            </>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path='/wishlist' element={<WishListPage/>} />
+      </Routes>
     </div>
   );
 }

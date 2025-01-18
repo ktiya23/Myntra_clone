@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Dialog,
@@ -11,6 +11,8 @@ import {
   styled,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom"; 
+import { handleSuccess } from "../../util";
+import { ToastContainer } from "react-toastify";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   fontSize: "15px",
@@ -21,7 +23,12 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const LoginDialogBox = ({ open, setOpen, user }) => {
+  const [loggedInUser,setLoggedInUser] = useState("")
   const navigate = useNavigate(); 
+
+  useEffect(()=>{
+    setLoggedInUser(localStorage.getItem("loggedInUser"))
+  },[])
 
   const handleClose = () => {
     setOpen(false);
@@ -31,7 +38,15 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
     setOpen(false); 
     navigate("/login"); 
   };
-
+  const handleLogout=()=>{
+    localStorage.removeItem("token")
+    localStorage.removeItem("loggedInUser")
+    handleSuccess("User LoggedOut Successfully")
+    setLoggedInUser("")
+    setTimeout(()=>{
+      navigate("/")
+    },1000)
+  }
   return (
     <Dialog
       open={open}
@@ -49,28 +64,10 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
         },
       }}
     >
-      {user ? (
+      {loggedInUser ? (
         <>
-          <DialogTitle sx={{ paddingBottom: 0 }}>Hello {user.name}</DialogTitle>
+          <DialogTitle sx={{ paddingBottom: 0 }}>Hello {loggedInUser}</DialogTitle>
           <DialogContent>
-            <DialogContentText sx={{ marginBottom: "12px" }}>
-              {user.number}
-            </DialogContentText>
-            <Button
-              variant="outlined"
-              sx={{
-                marginBottom: "15px",
-                color: "red",
-                borderColor: "gray",
-                fontWeight: "bold",
-                "&:hover": {
-                  borderColor: "red",
-                },
-              }}
-              onClick={handleLoginSignupClick} 
-            >
-              Login/Signup
-            </Button>
             <Divider />
             <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
               <StyledTypography>Orders</StyledTypography>
@@ -90,7 +87,8 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
             <Divider />
             <Box sx={{ marginTop: "15px" }}>
               <StyledTypography>Edit Profile</StyledTypography>
-              <StyledTypography>Logout</StyledTypography>
+              <StyledTypography onClick={handleLogout}>Logout</StyledTypography>
+              <ToastContainer/>
             </Box>
           </DialogContent>
         </>

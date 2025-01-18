@@ -30,6 +30,8 @@ const LoginDialogBox = ({ open, setOpen, user }) => {
     setLoggedInUser(localStorage.getItem("loggedInUser"))
   },[])
 
+  
+  
   const handleClose = () => {
     setOpen(false);
   };

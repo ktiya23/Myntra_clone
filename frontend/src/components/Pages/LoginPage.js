@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography, Divider } from "@mui/material";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [isSignUp, setIsSignUp] = useState(false); // State to toggle between Login and Signup
+  const [isSignUp, setIsSignUp] = useState(false); 
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
     console.log("Login logic");
-    navigate("/"); // Navigate to the home page after login
+    navigate("/"); 
   };
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    // Handle signup logic here
     console.log("Sign up logic");
-    navigate("/"); // Navigate to the home page after signup
+    navigate("/"); 
   };
 
   return (

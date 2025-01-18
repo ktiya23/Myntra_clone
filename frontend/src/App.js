@@ -6,7 +6,7 @@ import SignupPage from './components/Pages/SignupPage';
 import WishListPage from './components/Pages/WishListPage';
 import ShopByCategory from './components/ShopByCategory/ShopByCategory';
 import Top from './components/TopPart/Top';
-import { Routes, Route } from 'react-router-dom'; // Correct imports for Routes and Route
+import { Routes, Route } from 'react-router-dom'; 
 
 function App() {
   return (

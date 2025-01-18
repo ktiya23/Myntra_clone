@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, TextField, Button, Typography, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { handleError } from "../../util";
 
 const SignupPage = () => {
+  const [signInfo, setSignInfo] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSignInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    console.log("Sign up logic");
-    navigate("/"); // Navigate to home after signup
+    const { name, email, password } = signInfo;
+    if (!name || !email || !password) {
+      return handleError("All fields are required!!");
+    }
+    navigate("/");
   };
 
   return (
@@ -30,27 +44,36 @@ const SignupPage = () => {
       <form onSubmit={handleSignUpSubmit}>
         <TextField
           label="Name"
+          name="name"
           type="text"
           variant="outlined"
           fullWidth
           margin="normal"
           required
+          value={signInfo.name}
+          onChange={handleChange}
         />
         <TextField
           label="Email"
+          name="email"
           type="email"
           variant="outlined"
           fullWidth
           margin="normal"
           required
+          value={signInfo.email}
+          onChange={handleChange}
         />
         <TextField
           label="Password"
+          name="password"
           type="password"
           variant="outlined"
           fullWidth
           margin="normal"
           required
+          value={signInfo.password}
+          onChange={handleChange}
         />
         <Button
           type="submit"

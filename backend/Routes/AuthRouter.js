@@ -1,12 +1,11 @@
 import express from "express";
-import signupValidation from ("../Middlewares/AuthValidation")
-import signup from "../Controllers/AuthController";
+import { loginValidation, signupValidation } from "../Middlewares/AuthValidation.js";
+import {signup , login} from "../Controllers/AuthController.js";
 const router = express.Router();
 
-router.post("/login", (req, res) => {
-    res.send("Login Success");
-});
+
 
 router.post("/signup", signupValidation,signup );
+router.post("/login", loginValidation, login );
 
 export default router;  

@@ -1,6 +1,6 @@
-const { required } = require("joi")
-const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+import Joi from "joi"
+import mongoose from "mongoose"
 
 const UserSchema = new Schema({
     name:{
@@ -20,4 +20,4 @@ const UserSchema = new Schema({
 
 const userModel = mongoose.model("users" , UserSchema)
 
-module.exports = userModel
+export default mongoose.model('User', UserSchema);

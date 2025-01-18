@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button, Typography, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { handleError } from "../../util";
+import { handleError, handleSuccess } from "../../util";
 
 const SignupPage = () => {
   const [signInfo, setSignInfo] = useState({
@@ -17,13 +17,38 @@ const SignupPage = () => {
     setSignInfo((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSignUpSubmit = (e) => {
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = signInfo;
     if (!name || !email || !password) {
       return handleError("All fields are required!!");
     }
-    navigate("/");
+    try {
+        const url = "http://localhost:8080/auth/signup";
+        const response = await fetch(url,{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(signInfo)
+        })
+        const result = await response.json()
+        const {success , message , error} =  result
+        if (success){
+            handleSuccess(message);
+            setTimeout(()=>{
+                navigate("/login")
+            },1000)
+        }else if(error){
+            const details = error?.details[0].message
+            handleError(details)
+        }else if(!success){
+            handleError(message)
+        }
+        console.log(result)
+    } catch (error) {
+        handleError(error)
+    }
   };
 
   return (

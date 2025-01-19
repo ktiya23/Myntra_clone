@@ -17,7 +17,7 @@ const Container = styled(Box)`
 
 const SubmenuPopup = styled(Box)`
   position: absolute;
-  top: 47px; /* Place just below the header */
+  top: 47px; 
   gap: 30px;
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,13 +33,13 @@ const Subheading = styled(Typography)`
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 8px;
-  font-size: 12px;
+  font-size: 15px;
   transition: font-weight 0.3s ease;
   color: red;
 `;
 
 const Item = styled(Typography)`
-  font-size: 12px;
+  font-size: 15px;
   color: black;
   font-weight: normal;
   margin: 2px 0;
@@ -181,6 +181,24 @@ const NavBar = () => {
             "Educational Toys",
           ],
         },
+        {
+          heading: "Infants",
+          items: [
+            "Bodysuit",
+            "Dresses",
+            "Cloth",
+            "Suit",
+          ],
+        },
+        {
+          heading: "Brands",
+          items: [
+            "H&M",
+            "Zara",
+            "HRX",
+            "YK",
+          ],
+        },
       ],
     },
     {
@@ -225,6 +243,14 @@ const NavBar = () => {
             "Table Lights",
             "Outdoor Lighting",
           ],
+        },
+        {
+          heading: "Floring",
+          items: ["Runners", "Carpet", "Mats", "Mattress"],
+        },
+        {
+          heading: "Storage",
+          items: ["Bins", "Hangers", "Organizers", "Bags"],
         },
       ],
     },
@@ -273,6 +299,10 @@ const NavBar = () => {
           heading: "Tools & Accessories",
           items: ["Makeup Brushes", "Hair Dryers", "Straighteners", "Curlers"],
         },
+        {
+          heading: "Top Brands",
+          items: ["Lakme", "Mama Earth", "Maybelline", "Loreals", "Nivea", "M.A.C"],
+        },
       ],
     },
     {
@@ -303,15 +333,16 @@ const NavBar = () => {
   ];
 
   const [hoverIndex, setHoverIndex] = useState(null);
-  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [currentSubmenu, setCurrentSubmenu] = useState(null);
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index, submenu) => {
     setHoverIndex(index);
-    setShowSubmenu(true);
+    setCurrentSubmenu(submenu);
   };
 
-  const handleMouseLeavePopup = () => {
-    setShowSubmenu(false);
+  const handleMouseLeave = () => {
+    setHoverIndex(null);
+    setCurrentSubmenu(null);
   };
 
   return (
@@ -319,24 +350,28 @@ const NavBar = () => {
       {info.map((data, index) => (
         <Box
           key={index}
-          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseEnter={() => handleMouseEnter(index, data.submenu)}
           sx={{ position: "relative" }}
         >
           <Text>{data.text}</Text>
-          {showSubmenu && hoverIndex === index && (
-            <SubmenuPopup onMouseLeave={handleMouseLeavePopup}>
-              {data.submenu.map((submenu, subIndex) => (
-                <Box key={subIndex} sx={{ marginBottom: "10px" }}>
-                  <Subheading>{submenu.heading}</Subheading>
-                  {submenu.items.map((item, itemIndex) => (
-                    <Item key={itemIndex}>{item}</Item>
-                  ))}
-                </Box>
-              ))}
-            </SubmenuPopup>
-          )}
         </Box>
       ))}
+
+      {hoverIndex !== null && currentSubmenu && (
+        <SubmenuPopup
+          onMouseEnter={() => setHoverIndex(hoverIndex)} 
+          onMouseLeave={handleMouseLeave} 
+        >
+          {currentSubmenu.map((submenu, subIndex) => (
+            <Box key={subIndex} sx={{ marginBottom: "10px" }}>
+              <Subheading>{submenu.heading}</Subheading>
+              {submenu.items.map((item, itemIndex) => (
+                <Item key={itemIndex}>{item}</Item>
+              ))}
+            </Box>
+          ))}
+        </SubmenuPopup>
+      )}
     </Container>
   );
 };

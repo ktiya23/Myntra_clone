@@ -10,7 +10,11 @@ const app = express();
 dotenv.config();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin:["https://deploy-mern-1whq.vercal.app"],
+    methods:["POST" , "GET"],
+    credentials: true
+}));
 app.use("/auth", AuthRouter);
 
 Connection();

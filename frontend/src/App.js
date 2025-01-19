@@ -8,9 +8,10 @@ import SignupPage from './components/Pages/SignupPage';
 import WishListPage from './components/Pages/WishListPage';
 import ShopByCategory from './components/ShopByCategory/ShopByCategory';
 import Top from './components/TopPart/Top';
-import { Routes, Route } from 'react-router-dom'; 
+import { Routes, Route, useLocation } from 'react-router-dom'; 
 
 function App() {
+  const location = useLocation();
   return (
     <div>
       <Header />
@@ -30,7 +31,7 @@ function App() {
         <Route path='/wishlist' element={<WishListPage/>} />
         <Route path='/cart' element={<CartPage />} />
       </Routes>
-      <Footer/>
+      {location.pathname !== "/cart" && location.pathname!=="/wishlist" && <Footer/>}
     </div>
   );
 }

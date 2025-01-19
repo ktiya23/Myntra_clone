@@ -2,8 +2,14 @@ import { IconButton,Box,Typography } from '@mui/material'
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 
 import React from 'react'
+import {  useNavigate } from 'react-router-dom'
 
 const Cart = () => {
+  const navigate = useNavigate();
+  
+  const handleCart =()=>{
+    navigate("/cart")
+  }
   return (
     <Box
       sx={{
@@ -13,7 +19,7 @@ const Cart = () => {
         gap: 0,
       }}
     >
-      <IconButton sx={{ padding: 0 }}>
+      <IconButton sx={{ padding: 0 }} onClick={handleCart} >
         <ShoppingCartIcon
           sx={{
             fontSize: 20,

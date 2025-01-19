@@ -13,11 +13,12 @@ const Container = styled(Box)`
   justify-content: space-evenly;
   width: 100%;
   position: relative;
+  transition: border-bottom-color 0.3s ease;
 `;
 
 const SubmenuPopup = styled(Box)`
   position: absolute;
-  top: 47px; 
+  top: 64px;
   gap: 30px;
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -183,21 +184,11 @@ const NavBar = () => {
         },
         {
           heading: "Infants",
-          items: [
-            "Bodysuit",
-            "Dresses",
-            "Cloth",
-            "Suit",
-          ],
+          items: ["Bodysuit", "Dresses", "Cloth", "Suit"],
         },
         {
           heading: "Brands",
-          items: [
-            "H&M",
-            "Zara",
-            "HRX",
-            "YK",
-          ],
+          items: ["H&M", "Zara", "HRX", "YK"],
         },
       ],
     },
@@ -301,7 +292,14 @@ const NavBar = () => {
         },
         {
           heading: "Top Brands",
-          items: ["Lakme", "Mama Earth", "Maybelline", "Loreals", "Nivea", "M.A.C"],
+          items: [
+            "Lakme",
+            "Mama Earth",
+            "Maybelline",
+            "Loreals",
+            "Nivea",
+            "M.A.C",
+          ],
         },
       ],
     },
@@ -351,7 +349,11 @@ const NavBar = () => {
         <Box
           key={index}
           onMouseEnter={() => handleMouseEnter(index, data.submenu)}
-          sx={{ position: "relative" }}
+          sx={{
+            position: "relative",
+            paddingBottom: "5px",
+            borderBottom: hoverIndex === index ? "5px solid red" : "none",
+          }}
         >
           <Text>{data.text}</Text>
         </Box>
@@ -359,8 +361,8 @@ const NavBar = () => {
 
       {hoverIndex !== null && currentSubmenu && (
         <SubmenuPopup
-          onMouseEnter={() => setHoverIndex(hoverIndex)} 
-          onMouseLeave={handleMouseLeave} 
+          onMouseEnter={() => setHoverIndex(hoverIndex)}
+          onMouseLeave={handleMouseLeave}
         >
           {currentSubmenu.map((submenu, subIndex) => (
             <Box key={subIndex} sx={{ marginBottom: "10px" }}>

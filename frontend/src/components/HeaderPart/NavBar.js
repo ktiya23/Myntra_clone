@@ -11,23 +11,22 @@ const Text = styled(Typography)`
 const Container = styled(Box)`
   display: flex;
   justify-content: space-evenly;
-  width: 70%;
+  width: 100%;
+  position: relative;
 `;
 
 const SubmenuPopup = styled(Box)`
   position: absolute;
-  top: 75px; /* Ensures dropdown aligns just below the header */
-  left: 0;
+  top: 47px; /* Place just below the header */
+  gap: 30px;
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   padding: 20px;
   display: flex;
-  gap: 20px; /* Adds spacing between columns */
-  max-width: 800px; /* Sets max width */
-  height: 300px; /* Fixed height for the dropdown */
-  overflow-y: auto; /* Scrollable for large content */
-  z-index: 10; /* Ensures it appears above other elements */
+  justify-content: space-between;
+  height: 250px;
+  z-index: 10;
+  margin: 0 auto;
 `;
 
 const Subheading = styled(Typography)`
@@ -36,7 +35,7 @@ const Subheading = styled(Typography)`
   margin-bottom: 8px;
   font-size: 12px;
   transition: font-weight 0.3s ease;
-  color: black;
+  color: red;
 `;
 
 const Item = styled(Typography)`
@@ -49,9 +48,8 @@ const Item = styled(Typography)`
     font-weight: bold;
   }
 `;
-const NavBar = () => {
-  const [hoverIndex, setHoverIndex] = useState(null);
 
+const NavBar = () => {
   const info = [
     {
       text: "MEN",
@@ -304,20 +302,31 @@ const NavBar = () => {
     },
   ];
 
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const [showSubmenu, setShowSubmenu] = useState(false);
+
+  const handleMouseEnter = (index) => {
+    setHoverIndex(index);
+    setShowSubmenu(true);
+  };
+
+  const handleMouseLeavePopup = () => {
+    setShowSubmenu(false);
+  };
+
   return (
     <Container>
       {info.map((data, index) => (
         <Box
           key={index}
-          onMouseEnter={() => setHoverIndex(index)}
-          onMouseLeave={() => setHoverIndex(null)}
+          onMouseEnter={() => handleMouseEnter(index)}
           sx={{ position: "relative" }}
         >
           <Text>{data.text}</Text>
-          {hoverIndex === index && data.submenu && (
-            <SubmenuPopup>
+          {showSubmenu && hoverIndex === index && (
+            <SubmenuPopup onMouseLeave={handleMouseLeavePopup}>
               {data.submenu.map((submenu, subIndex) => (
-                <Box key={subIndex} sx={{ minWidth: "200px" }}>
+                <Box key={subIndex} sx={{ marginBottom: "10px" }}>
                   <Subheading>{submenu.heading}</Subheading>
                   {submenu.items.map((item, itemIndex) => (
                     <Item key={itemIndex}>{item}</Item>

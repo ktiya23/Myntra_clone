@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/FooterPart/Footer';
 import Header from './components/HeaderPart/Header';
 import ImageSlider from './components/ImageSliderPart/ImageSlider';
 import LoginPage from './components/Pages/LoginPage';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signup" element={<SignupPage/>} />
         <Route path='/wishlist' element={<WishListPage/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

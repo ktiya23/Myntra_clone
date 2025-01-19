@@ -31,7 +31,7 @@ function App() {
         <Route path='/wishlist' element={<WishListPage/>} />
         <Route path='/cart' element={<CartPage />} />
       </Routes>
-      {location.pathname !== "/cart" && location.pathname!=="/wishlist" && <Footer/>}
+      {location.pathname !== "/cart" && location.pathname!=="/wishlist" && location.pathname!=="/login" && location.pathname!=="/signup" && <Footer/>}
     </div>
   );
 }

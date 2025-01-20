@@ -17,7 +17,7 @@ app.use(cors({
     credentials: true
 }));
 app.use("/auth", AuthRouter);
-app.use("/api" , ProdRouter);
+app.use("/auth/products" , ProdRouter);
 
 Connection();
 

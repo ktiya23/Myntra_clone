@@ -12,7 +12,7 @@ dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin:[ ""],
+    origin:[ "http://localhost:3000", "https://myntra-clone-api.vercel.app/"],
     methods:["POST" , "GET"],
     credentials: true
 }));

@@ -12,10 +12,9 @@ dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin:[ "http://localhost:3000", "https://myntra-clone-api.vercel.app/"],
+    origin:[ "http://localhost:3000", "https://deploy-mern-1whq.vercal.app"],
     methods:["POST" , "GET"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
 app.use("/auth", AuthRouter);
 app.use("/products" , ProdRouter);

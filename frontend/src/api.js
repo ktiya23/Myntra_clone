@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://myntra-clone-api.vercel.app/";
+const API_URL = "http://localhost:8080";
 
 export const fetchProducts = async (filters) => {
   try {

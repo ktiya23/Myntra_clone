@@ -12,7 +12,7 @@ dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin:[ "http://localhost:3000", "https://deploy-mern-1whq.vercal.app"],
+    origin:[ ""],
     methods:["POST" , "GET"],
     credentials: true
 }));

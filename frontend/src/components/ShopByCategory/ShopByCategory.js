@@ -53,7 +53,7 @@ const ShopByCategory = () => {
                   alt={`Category ${index + 1}`}
                   style={{ width: "100%", height: "auto", margin: 0, padding: 0 }}
                 />
-              </Link>
+              </Link> {/* here on clicking partcular image / category it should navigate to product detail page */}
             </div>
           ))}
         </div>

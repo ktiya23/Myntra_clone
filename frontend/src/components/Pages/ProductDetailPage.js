@@ -18,6 +18,9 @@ const ProductDetailPage = () => {
   const [brands, setBrands] = useState([]);
   const [sortBy, setSortBy] = useState("default");
 
+  const categoriesList = ['Indian', 'Western', 'Indo-Western']; 
+  const brandsList = ['H&M', 'Zara', 'Puma'];
+
   const handleCategoryChange = (event) => {
     const { value } = event.target;
     setCategories((prevCategories) =>
@@ -41,8 +44,6 @@ const ProductDetailPage = () => {
   };
 
   return (
-    const categoriesList = ['Indian', 'Western', 'Indo-Western']; 
-    const brandsList = ['H&M', 'Zara', 'Puma'];
     <Box sx={{ padding: "20px" }}>
       {/* Title Section */}
       <Typography

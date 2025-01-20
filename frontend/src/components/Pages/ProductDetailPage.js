@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import {
   Box,
-  Grid,
   Typography,
   Checkbox,
   FormControlLabel,
   FormGroup,
-  Button,
   Select,
   MenuItem,
   InputLabel,
   FormControl,
+  Grid2,
 } from "@mui/material";
 import { fetchProducts } from "../../api";
 
@@ -68,30 +67,15 @@ const ProductDetailPage = () => {
         Product Details List
       </Typography>
 
-      <Grid container spacing={2}>
-        <Grid item xs={8}>
-          <Grid container spacing={2}>
-            {products.map((product) => (
-              <Grid item xs={4} key={product._id}>
-                <Box sx={{ border: "1px solid #ddd", padding: "10px", borderRadius: "8px" }}>
-                  <img src={product.image} alt={product.name} style={{ width: "100%" }} />
-                  <Typography variant="h6">{product.name}</Typography>
-                  <Typography variant="body2">Price: ${product.price}</Typography>
-                  <Typography variant="body2">Rating: {product.rating}</Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-
-        <Grid item xs={4}>
+      <Grid2 container spacing={2}>
+        <Grid2 item xs={4}>
           <Box sx={{ position: "sticky", top: "20px" }}>
             <Typography variant="h6" sx={{ marginBottom: "10px" }}>
               Filter & Sort
             </Typography>
 
             {/* Sorting */}
-            <FormControl fullWidth sx={{ marginBottom: "20px" }}>
+            <FormControl sx={{ marginBottom: "20px" }}>
               <InputLabel>Sort By</InputLabel>
               <Select value={sortBy} onChange={handleSortChange} label="Sort By">
                 <MenuItem value="default">Default</MenuItem>
@@ -137,8 +121,43 @@ const ProductDetailPage = () => {
               ))}
             </FormGroup>
           </Box>
-        </Grid>
-      </Grid>
+        </Grid2>
+        <Grid2 item xs={8}>
+          <Grid2 container spacing={2}>
+            {products.map((product, index) => (
+              <Grid2 item xs={12} sm={6} md={4} key={index}>
+                <Box
+                  sx={{
+                    border: "1px solid #ddd",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    textAlign: "center",
+                    backgroundColor: "#fff",
+                  }}
+                >
+                  <img
+                    src={product.image_url}
+                    alt={product.description}
+                    style={{ width: "100%", height: "auto", marginBottom: "10px" }}
+                  />
+                  <Typography variant="h6" component="h2" gutterBottom>
+                    {product.brand}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    {product.description}
+                  </Typography>
+                  <Typography variant="body1" color="primary" gutterBottom>
+                    Price: Rs. {product.price}
+                  </Typography>
+                  <Typography variant="body2" color="secondary">
+                    Rating: {product.rating} ⭐
+                  </Typography>
+                </Box>
+              </Grid2>
+            ))}
+          </Grid2>
+        </Grid2>
+      </Grid2>
     </Box>
   );
 };

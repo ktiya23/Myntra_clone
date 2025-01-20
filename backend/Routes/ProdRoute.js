@@ -1,5 +1,6 @@
 import express from "express";
 const router = express.Router();
+import Product from "../Models/Product.js";
 
 router.get("/", async (req, res) => {
     const { categories, brands, sortBy } = req.query;

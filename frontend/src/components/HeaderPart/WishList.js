@@ -2,7 +2,7 @@ import { IconButton,Box,Typography } from '@mui/material'
 import FavoriteIcon from "@mui/icons-material/Favorite"
 
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const WishList = () => {
   const navigate = useNavigate()

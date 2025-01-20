@@ -31,7 +31,7 @@ function App() {
         <Route path="/signup" element={<SignupPage/>} />
         <Route path='/wishlist' element={<WishListPage/>} />
         <Route path='/cart' element={<CartPage />} />
-        <Route path='/product-detail' element={<ProductDetailPage/>} />
+        <Route path='/category/:categoryID' element={<ProductDetailPage/>} />
       </Routes>
       {location.pathname !== "/cart" && location.pathname!=="/wishlist" && location.pathname!=="/login" && location.pathname!=="/signup" && location.pathname !== "/product-detail" && <Footer/>}
     </div>

@@ -47,7 +47,7 @@ const ShopByCategory = () => {
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", margin: 0, padding: 0 }}>
           {images.map((image, index) => (
             <div key={index} style={{ flex: "0 0 calc(16.66%)", maxWidth: "16.66%" }}>
-              <Link to={`/product-detail`}>
+              <Link to={`/category/:categoryID`}>
                 <img
                   src={image.url}
                   alt={`Category ${index + 1}`}
